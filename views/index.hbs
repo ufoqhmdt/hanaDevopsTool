@@ -1,0 +1,125 @@
+<div class="bs-docs-section clearfix">
+<!--   <div class="row">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="panel panel-default">
+          <div class="panel-heading">Panel heading</div>
+          <div class="panel-body">
+            <form>
+                <div class="row">
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                      </span>
+                      <input type="text" class="form-control">
+                    </div>
+                  </div>
+                  <div class="col-lg-6">
+                    <div class="input-group">
+                      <input type="text" class="form-control">
+                      <span class="input-group-btn">
+                        <button class="btn btn-default" type="button">Go!</button>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+            </form>
+            <div class="panel-footer">Panel footer</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="well bs-component">
+          <div class="form-horizontal">
+            <fieldset>
+              <legend>DevOps Tools</legend>
+              <div class="form-group">
+                <label for="inputSLDHanaHost" class="col-lg-2 control-label">SLD HANA Host</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputSLDHanaHost" placeholder="Host">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputSLDHanaPort" class="col-lg-2 control-label">SLD HANA Port</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputSLDHanaPort" placeholder="Port">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputSLDHanaAccount" class="col-lg-2 control-label">SLD HANA Account</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputSLDHanaAccount" placeholder="Account">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputSLDHanaPassword" class="col-lg-2 control-label">Password</label>
+                <div class="col-lg-10">
+                  <input type="password" class="form-control" id="inputSLDHanaPassword" placeholder="Password">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputSLDHanaSchema" class="col-lg-2 control-label">SLD Schema Name</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputSLDHanaSchema" placeholder="SLD Schema Name ">
+                </div>
+              </div>
+              <div class="form-group">
+                <label  class="col-lg-2 control-label">SLD Schema</label>
+                <div class="col-lg-10">
+                  <div class="checkbox">
+                    <label>
+                      <input type="checkbox" id="ifSchema"> Run SQL only on SLD DB
+                    </label>
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="sqlEditor" class="col-lg-2 control-label">SQL Editor</label>
+                <div class="col-lg-10">
+                  <textarea class="form-control" rows="3" id="sqlEditor"></textarea>
+                  <span class="help-block">A longer block of help text that breaks onto a new line and may extend beyond one line.</span>
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <button class="btn btn-success" id="btnSaveSettings">Save Settings</button>
+                  <button class="btn btn-default">Cancel</button>
+                  <button class="btn btn-primary" id="btnRunSql">RUN</button>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bs-component">
+          <div class="list-group" id="settingsHistory">
+            <a href="#" class="list-group-item active">
+              Settings History
+            </a>
+            {{#each ufo}}
+              <a href="#" class="settings-data list-group-item" 
+                data-row="{{row}}" 
+                data-host="{{host}}" 
+                data-port="{{port}}" 
+                data-account="{{account}}" 
+                data-password="{{password}}" 
+                data-schema="{{schema}}"  
+                data-sql="{{sql}}">
+                  {{account}} @ {{host}} :/ {{schema}}
+              </a>
+            {{/each}}
+          </div>
+          
+                
+          
+         
+        <div id="source-button" class="btn btn-primary btn-xs" style="display: block;">&lt; &gt;</div></div>
+      </div>
+  </div>
+</div>
+
