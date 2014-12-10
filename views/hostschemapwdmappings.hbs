@@ -1,0 +1,57 @@
+
+<div class="bs-docs-section clearfix">
+    <div class="row">
+      <div class="col-lg-8">
+        <div class="well bs-component">
+          <div class="form-horizontal">
+            <fieldset>
+              <legend>{{!-- DevOps Tools --}}</legend>
+              <div class="form-group">
+                <label for="inputhost" class="col-lg-2 control-label">host</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputhost" placeholder="host">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputport" class="col-lg-2 control-label">port</label>
+                <div class="col-lg-10">
+                  <input type="text" class="form-control" id="inputport" placeholder="port">
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="inputpwd" class="col-lg-2 control-label">pwd</label>
+                <div class="col-lg-10">
+                  <input type="password" class="form-control" id="inputpwd" placeholder="pwd">
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <button class="btn btn-default">Cancel</button>
+                  <button class="btn btn-primary" id="btnAddMapping">Add Mapping</button>
+                </div>
+              </div>
+            </fieldset>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-4">
+        <div class="bs-component">
+          <div class="list-group" id="mappingHistory">
+            <a href="#" class="list-group-item active">
+              Settings History
+            </a>
+            {{#each ufo}}
+              <a href="#" class="settings-data list-group-item" 
+                data-host="{{host}}" 
+                data-port="{{port}}" 
+                data-pwd="{{pwd}}" >
+                {{host}} : {{port}} @ ({{pwd}})
+              </a>
+            {{/each}}
+          </div>
+         
+        <div id="source-button" class="btn btn-primary btn-xs" style="display: block;">&lt; &gt;</div>
+        </div>
+      </div>
+  </div>
+</div>

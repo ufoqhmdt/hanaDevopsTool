@@ -1,4 +1,15 @@
+
 <div class="bs-docs-section clearfix">
+  <div class="row">
+    <ul class="nav nav-pills nav-justified">
+          <li role="presentation" class="active ufo-navli devstepli1"><a href="#">Fetch HANA Instance Info</a></li>
+          <li role="presentation" class="ufo-navli devstepli2"><a href="#">Batch update HANA info</a></li>
+          <li role="presentation" class="ufo-navli devstepli3"><a href="#">Messages</a></li>
+    </ul>
+  </div>
+</div>
+
+<div class="bs-docs-section clearfix devstep1">
 <!--   <div class="row">
     <div class="col-lg-12">
       <div class="bs-component">
@@ -89,6 +100,7 @@
                   <button class="btn btn-success" id="btnSaveSettings">Save Settings</button>
                   <button class="btn btn-default">Cancel</button>
                   <button class="btn btn-primary" id="btnRunSql">RUN</button>
+                  <!-- Button trigger modal -->
                 </div>
               </div>
             </fieldset>
@@ -114,12 +126,69 @@
               </a>
             {{/each}}
           </div>
-          
-                
-          
          
-        <div id="source-button" class="btn btn-primary btn-xs" style="display: block;">&lt; &gt;</div></div>
+        <div id="source-button" class="btn btn-primary btn-xs" style="display: block;">&lt; &gt;</div>
+        </div>
       </div>
+  </div>
+</div>
+
+
+
+
+
+<div class="bs-docs-section clearfix devstep2">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">HANA Instance List</h4>
+              </div>
+              <div class="modal-body">
+                <div class="row hanaInstancesList">
+                </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<div class="bs-docs-section clearfix devstep3">
+  <div class="row">
+    <div class="col-lg-12">
+      <div class="bs-component">
+        <div class="modal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title">Modal title</h4>
+              </div>
+              <div class="modal-body">
+                <p>One fine body…</p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary">Save changes</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
 

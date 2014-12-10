@@ -31,8 +31,6 @@ router.get('/', function(req, res) {
         });
     });
     db.close();
-
-
 });
 
 router.get('/saveSettings', function(req, res) {
@@ -229,6 +227,111 @@ router.get('/getTenentsInfo', function(req, res) {
         });
     });
 });
+
+
+
+router.get('/saveTenentDBinfo', function(req, res) {
+    console.log("--------1");
+    var hostname = req.query.hostname;
+    var schemaname = req.query.schemaname;
+    var username = req.query.username;
+    var password = req.query.password;
+
+    saveTenentDBinfo(hostname,schemaname,username,password,res);
+
+    /*var db = new sqlite3.Database(sqliteDBPath);
+    console.log("--------4");
+    db.serialize(function() {
+        console.log("--------5");
+        db.run("CREATE TABLE if not exists tenentDBinfo (hostname TEXT,schemaname TEXT,username TEXT, password TEXT)");
+
+        var stmt = db.prepare("INSERT INTO tenentDBinfo (hostname,schemaname,username,password) VALUES ($hostname,$schemaname,$username,$password)");
+        stmt.run({
+            $hostname: hostname,
+            $schemaname: schemaname,
+            $username: username,
+            $password: password
+        });
+        stmt.finalize();
+        var datas = [];
+        console.log("--------55");
+        db.each("SELECT rowid AS id,hostname,schemaname,username,password FROM tenentDBinfo", function(err, row) {
+            console.log(err);
+            datas.push({
+                "hostname": row.hostname,
+                "schemaname": row.schemaname,
+                "username": row.username,
+                "password": row.password
+            });
+            console.log("--------6");
+        }, function() {
+            res.send(datas);
+            console.log("--------7");
+        });
+    });
+    db.close();*/
+    console.log("--------89");
+});
+
+router.get('/selTenentDBinfo', function(req, res) {
+    var db = new sqlite3.Database(sqliteDBPath);
+
+    db.serialize(function() {
+        var i = 0;
+        var datas = [];
+
+        db.each("SELECT rowid AS id,hostname,schemaname,username,password FROM tenentDBinfo", function(err, row) {
+
+            datas.push({
+                "row": row.id,
+                "hostname": row.hostname,
+                "schemaname": row.schemaname,
+                "username": row.username,
+                "password": row.password
+            });
+        }, function() {
+            res.send(datas);
+        });
+    });
+
+    db.close();
+});
+
+
+function saveTenentDBinfo(hostname, schemaname, username, password,res) {
+    var db = new sqlite3.Database(sqliteDBPath);
+    console.log("--------4");
+    var rtn = [];
+    db.serialize(function() {
+        console.log("--------5");
+        db.run("CREATE TABLE if not exists tenentDBinfo (hostname TEXT,schemaname TEXT,username TEXT, password TEXT)");
+
+        var stmt = db.prepare("INSERT INTO tenentDBinfo (hostname,schemaname,username,password) VALUES ($host,$port,$account,$password,$schema,$sql)");
+        stmt.run({
+            $hostname: hostname,
+            $schemaname: schemaname,
+            $username: username,
+            $password: password
+        });
+        stmt.finalize();
+        var datas = [];
+        db.each("SELECT rowid AS id,hostname,schemaname,username,password FROM tenentDBinfo", function(err, row) {
+            datas.push({
+                "hostname": row.hostname,
+                "schemaname": row.schemaname,
+                "username": row.username,
+                "password": row.password
+            });
+            console.log("--------6");
+        }, function() {
+            rtn.put(datas);
+            res.send(rtn);
+            console.log("--------7");
+        });
+    });
+    db.close();
+    console.log("--------8");
+}
 
 
 
